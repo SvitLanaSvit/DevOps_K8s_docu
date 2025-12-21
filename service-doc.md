@@ -70,6 +70,20 @@ spec:
 - `spec.ports.targetPort`: порт у контейнері/Pod’і
 - `spec.type`: спосіб експонування Service
 
+## Як Service знаходить Pod’и (selector → endpoints)
+Service “підбирає” цільові Pod’и за `spec.selector` (labels). За цим selector Kubernetes формує **Endpoints/EndpointSlice** — список IP/портів Pod’ів, куди реально піде трафік.
+
+Важливо:
+- Selector працює **тільки в межах одного namespace** (Service не може напряму вибрати Pod’и з іншого namespace).
+
+## Доступ між namespace (DNS)
+Pod з `frontend` може звертатись до Service в `backend` через DNS:
+- повне ім’я: `backend-svc.backend.svc.cluster.local`
+- часто вистачає: `backend-svc.backend`
+
+## Схема (скріншот)
+![Service + namespace + DNS](./screenshots/service-cross-namespace.png)
+
 ## Основні команди kubectl
 - Переглянути services: `kubectl get svc -n <namespace>`
 - Деталі service: `kubectl describe svc <service-name> -n <namespace>`
@@ -78,6 +92,9 @@ spec:
 
 ## Перевірка доступності (локально)
 - Port-forward до Service: `kubectl port-forward svc/<service-name> 8080:80 -n <namespace>`
+
+## Схема (ClusterIP + port-forward)
+![Service ClusterIP + port-forward](./screenshots/service.png)
 
 ## Додатково
 Докладніше: https://kubernetes.io/docs/concepts/services-networking/service/

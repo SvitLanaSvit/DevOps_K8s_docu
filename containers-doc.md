@@ -21,8 +21,41 @@
 ## Де описуються контейнери в маніфесті Pod
 У `spec` Pod є кілька списків:
 - `spec.containers` — основні (app) контейнери, які мають працювати під час життя Pod.
-- `spec.initContainers` — контейнер(и) для підготовки, які мають завершитися успішно ДО старту основних контейнерів.
-- `spec.ephemeralContainers` — тимчасові контейнери для дебагу (часто додаються командою `kubectl debug`; не є “частиною” звичайного деплойменту в тому ж сенсі, що `containers`).
+- `spec.initContainers` — контейнери для підготовки. Є 2 варіанти:
+  - **звичайні initContainers** — мають завершитися успішно (exit code 0) ДО старту основних контейнерів;
+  - **restartable init containers** (initContainers з `restartPolicy: Always`) — по суті *sidecar*, який стартує **до** основних контейнерів і може працювати паралельно з ними.
+- `spec.ephemeralContainers` — тимчасові контейнери для дебагу (часто додаються командою `kubectl debug`).
+
+## InitContainers: звичайні vs "sidecar" (restartPolicy: Always)
+### Звичайний initContainer
+- Стартує першим.
+- Має завершитись успішно.
+- Тільки після цього запускаються основні `containers`.
+
+### Restartable init container (sidecar)
+Іноді initContainer роблять "restartable" через `restartPolicy: Always`. Такий контейнер:
+- стартує **до** основних контейнерів;
+- **не зобов’язаний завершуватися**;
+- може працювати як *sidecar* (наприклад, проксі/агент/підготовка, яка має тривати під час роботи Pod).
+
+Примітка: підтримка цього режиму залежить від версії/налаштувань кластера.
+
+### YAML-приклад (sidecar як initContainer)
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app-with-sidecar-init
+spec:
+  initContainers:
+    - name: sidecar-proxy
+      image: busybox:1.36
+      command: ['sh', '-c', 'while true; do echo proxy running; sleep 10; done']
+      restartPolicy: Always
+  containers:
+    - name: app
+      image: nginx:latest
+```
 
 ## Коли і в який момент створюються контейнери (таймлайн)
 Нижче — типовий сценарій, коли ви створюєте Pod/Deployment:

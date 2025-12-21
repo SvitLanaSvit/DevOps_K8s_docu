@@ -9,22 +9,48 @@
 ## Рекомендований порядок читання
 1) [cluster-doc.md](cluster-doc.md) — що таке кластер і як він влаштований
 2) [node-doc.md](node-doc.md) — що таке нода (worker/control plane)
-3) [pod-doc.md](pod-doc.md) — Pod та життєвий цикл
-4) [containers-doc.md](containers-doc.md) — containers / initContainers і коли вони реально створюються
-5) [service-doc.md](service-doc.md) — Service і типи доступу
-6) [namespace-doc.md](namespace-doc.md) — Namespace і логічна ізоляція
+3) [scheduling-doc.md](scheduling-doc.md) — як scheduler розміщує Pod (Affinity/AntiAffinity)
+4) [pod-doc.md](pod-doc.md) — Pod та життєвий цикл
+5) [containers-doc.md](containers-doc.md) — containers / initContainers і коли вони реально створюються
+6) [deployment-doc.md](deployment-doc.md) — Deployment / ReplicaSet (replicas, rollout, rollback)
+7) [daemonset-doc.md](daemonset-doc.md) — DaemonSet (по одному Pod на кожній Node)
+8) [job-doc.md](job-doc.md) — Job (одноразові/батч задачі)
+9) [cronjob-doc.md](cronjob-doc.md) — CronJob (Job за розкладом)
+10) [configmap-doc.md](configmap-doc.md) — ConfigMap (key/value і як файли)
+11) [service-doc.md](service-doc.md) — Service і типи доступу
+12) [namespace-doc.md](namespace-doc.md) — Namespace і логічна ізоляція
 
 ## Документи
 - [cluster-doc.md](cluster-doc.md)
 - [node-doc.md](node-doc.md)
+- [scheduling-doc.md](scheduling-doc.md)
 - [pod-doc.md](pod-doc.md)
 - [containers-doc.md](containers-doc.md)
+- [deployment-doc.md](deployment-doc.md)
+- [daemonset-doc.md](daemonset-doc.md)
+- [job-doc.md](job-doc.md)
+- [cronjob-doc.md](cronjob-doc.md)
+- [configmap-doc.md](configmap-doc.md)
 - [service-doc.md](service-doc.md)
 - [namespace-doc.md](namespace-doc.md)
 
 ## Схеми
 - Скріншот діаграми кластера (відображається в GitHub):
-  - [cluster-diagram.png](cluster-diagram.png)
+  - [cluster-diagram.png](./screenshots/cluster-diagram.png)
+- Скріншот про Deployment → ReplicaSet → Pods:
+  - [deployment.png](./screenshots/deployment.png)
+- Скріншот про DaemonSet (1 Pod на кожній Node):
+  - [daemont_set.png](./screenshots/daemont_set.png)
+- Скріншот про Job (одноразова задача в Pod):
+  - [job.png](./screenshots/job.png)
+- Скріншот про CronJob (schedule + jobTemplate):
+  - [job_yaml.png](./screenshots/job_yaml.png)
+- Скріншот про PodAffinity / PodAntiAffinity:
+  - [scheduling-affinity.png](./screenshots/scheduling-affinity.png)
+- Скріншот про Service + namespace + DNS:
+  - [service-cross-namespace.png](./screenshots/service-cross-namespace.png)
+- Скріншот про Service (ClusterIP + port-forward):
+  - [service.png](./screenshots/service.png)
 
 ## Папки
 - [screenshots/](screenshots/) — вихідні скріншоти

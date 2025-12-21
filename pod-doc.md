@@ -54,6 +54,12 @@ spec:
 - Підготувати файли/конфіг у volume
 - Виконати міграції БД або одноразову ініціалізацію
 
+### InitContainer як sidecar (restartPolicy: Always)
+Є режим, коли initContainer може працювати як *sidecar*: для цього в init-контейнері задають `restartPolicy: Always`.
+Такий контейнер стартує **до** основних контейнерів і може працювати паралельно з ними.
+
+Детальніше та приклад YAML: [containers-doc.md](containers-doc.md).
+
 ### YAML-приклад Pod з initContainers
 ```yaml
 apiVersion: v1
@@ -76,6 +82,21 @@ spec:
 - Подивитись статуси init-контейнерів: `kubectl describe pod <pod-name>`
 - Логи конкретного init-контейнера: `kubectl logs <pod-name> -c <init-container-name>`
 - Список контейнерів у Pod (включно з init): `kubectl get pod <pod-name> -o jsonpath='{.spec.initContainers[*].name} {.spec.containers[*].name}'`
+
+## Scheduling (де Pod буде запущений)
+Scheduler вибирає, **на якій Node** буде запущено Pod. Це можна контролювати через:
+- `nodeSelector` / `nodeAffinity` — вибір нод за labels
+- `podAffinity` — “постав поруч з іншими Pod’ами”
+- `podAntiAffinity` — “не став поруч з іншими Pod’ами”
+
+Детальніше з прикладами: [scheduling-doc.md](scheduling-doc.md).
+
+## Конфігурація Pod (ConfigMap)
+Часто Pod отримує конфіг через **ConfigMap**:
+- як env змінні
+- або як файли через volume
+
+Детальніше з прикладами: [configmap-doc.md](configmap-doc.md).
 
 ## Основні команди для роботи з Pod:
 - Створити Pod: `kubectl apply -f pod.yaml`
