@@ -11,6 +11,26 @@
 
 ![Deployment → ReplicaSet → Pods (replicas)](./screenshots/deployment.png)
 
+## Labels / selector / template (дуже важливо)
+
+![Labels і selector повинні збігатися](./screenshots/deployment_name.png)
+
+У Deployment є **три місця**, які часто плутають:
+
+- `metadata.labels` — лейбли **самого Deployment-об’єкта** (для пошуку/організації). Вони **не керують** тим, які Pod-и належать Deployment.
+- `spec.selector.matchLabels` — це “умова вибору”: **які Pods вважаються “моїми”** для цього Deployment/ReplicaSet.
+- `spec.template.metadata.labels` — лейбли, які отримають **Pod-и**, створені цим Deployment.
+
+Критично важливо:
+- `spec.selector.matchLabels` **має збігатися** з лейблами у `spec.template.metadata.labels`.
+  Інакше Deployment створить Pod-и з одними лейблами, але шукатиме “свої” Pod-и за іншими — і контроль реплік працювати не буде.
+
+Практичне правило:
+- Спочатку придумай лейбл (наприклад, `app: nginx`).
+- Впиши його **і** в `spec.selector.matchLabels`, **і** в `spec.template.metadata.labels`.
+
+> Нюанс: `spec.selector` у Deployment вважається критичною частиною і зазвичай **не можна** міняти після створення (immutable), тому краще одразу зробити правильно.
+
 ## Як це працює
 
 1) Ти застосовуєш `Deployment` з `spec.replicas` і `spec.template`.

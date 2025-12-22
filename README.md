@@ -41,6 +41,8 @@
   - [cluster-diagram.png](./screenshots/cluster-diagram.png)
 - Скріншот про Deployment → ReplicaSet → Pods:
   - [deployment.png](./screenshots/deployment.png)
+- Скріншот про labels/selector у Deployment:
+  - [deployment_name.png](./screenshots/deployment_name.png)
 - Скріншот про DaemonSet (1 Pod на кожній Node):
   - [daemont_set.png](./screenshots/daemont_set.png)
 - Скріншот про Job (одноразова задача в Pod):
