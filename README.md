@@ -17,8 +17,9 @@
 8) [job-doc.md](job-doc.md) — Job (одноразові/батч задачі)
 9) [cronjob-doc.md](cronjob-doc.md) — CronJob (Job за розкладом)
 10) [configmap-doc.md](configmap-doc.md) — ConfigMap (key/value і як файли)
-11) [service-doc.md](service-doc.md) — Service і типи доступу
-12) [namespace-doc.md](namespace-doc.md) — Namespace і логічна ізоляція
+11) [storageclass-doc.md](storageclass-doc.md) — StorageClass (класи сховища для PVC/PV)
+12) [service-doc.md](service-doc.md) — Service і типи доступу
+13) [namespace-doc.md](namespace-doc.md) — Namespace і логічна ізоляція
 
 ## Документи
 - [cluster-doc.md](cluster-doc.md)
@@ -31,6 +32,7 @@
 - [job-doc.md](job-doc.md)
 - [cronjob-doc.md](cronjob-doc.md)
 - [configmap-doc.md](configmap-doc.md)
+- [storageclass-doc.md](storageclass-doc.md)
 - [service-doc.md](service-doc.md)
 - [namespace-doc.md](namespace-doc.md)
 
@@ -45,6 +47,10 @@
   - [job.png](./screenshots/job.png)
 - Скріншот про CronJob (schedule + jobTemplate):
   - [job_yaml.png](./screenshots/job_yaml.png)
+- Скріншот про PVC/PV (static provisioning):
+  - [pvc_pv.png](./screenshots/pvc_pv.png)
+- Скріншот про StorageClass → PV (static provisioning):
+  - [pvc.png](./screenshots/pvc.png)
 - Скріншот про PodAffinity / PodAntiAffinity:
   - [scheduling-affinity.png](./screenshots/scheduling-affinity.png)
 - Скріншот про Service + namespace + DNS:
