@@ -18,8 +18,9 @@
 9) [cronjob-doc.md](cronjob-doc.md) — CronJob (Job за розкладом)
 10) [configmap-doc.md](configmap-doc.md) — ConfigMap (key/value і як файли)
 11) [storageclass-doc.md](storageclass-doc.md) — StorageClass (класи сховища для PVC/PV)
-12) [service-doc.md](service-doc.md) — Service і типи доступу
-13) [namespace-doc.md](namespace-doc.md) — Namespace і логічна ізоляція
+12) [statefulset-doc.md](statefulset-doc.md) — StatefulSet (stable DNS + stable storage)
+13) [service-doc.md](service-doc.md) — Service і типи доступу
+14) [namespace-doc.md](namespace-doc.md) — Namespace і логічна ізоляція
 
 ## Документи
 - [cluster-doc.md](cluster-doc.md)
@@ -33,6 +34,7 @@
 - [cronjob-doc.md](cronjob-doc.md)
 - [configmap-doc.md](configmap-doc.md)
 - [storageclass-doc.md](storageclass-doc.md)
+- [statefulset-doc.md](statefulset-doc.md)
 - [service-doc.md](service-doc.md)
 - [namespace-doc.md](namespace-doc.md)
 
@@ -53,6 +55,8 @@
   - [pvc_pv.png](./screenshots/pvc_pv.png)
 - Скріншот про StorageClass → PV (static provisioning):
   - [pvc.png](./screenshots/pvc.png)
+- Скріншот про StatefulSet + headless Service + DNS:
+  - [statfull_set.png](./screenshots/statfull_set.png)
 - Скріншот про PodAffinity / PodAntiAffinity:
   - [scheduling-affinity.png](./screenshots/scheduling-affinity.png)
 - Скріншот про Service + namespace + DNS:
