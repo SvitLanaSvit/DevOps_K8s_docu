@@ -84,6 +84,33 @@ spec:
 
 Зміна `image` в `spec.template` створить новий ReplicaSet і запустить rollout:
 
+## Що буде, якщо змінити `petclinic:v1` → `petclinic:v2`
+
+![Оновлення версії в Deployment створює новий ReplicaSet](./screenshots/deployment_change_version.png)
+
+Коли ти міняєш версію образу в Deployment (наприклад, `petclinic:v1` на `petclinic:v2`), Kubernetes робить **rollout**:
+
+1) Deployment бачить зміну в `spec.template` → створює **новий ReplicaSet** (нова “версія”).
+2) Новий ReplicaSet починає створювати Pod-и з `petclinic:v2`.
+3) Паралельно старий ReplicaSet з `petclinic:v1` поступово **зменшується** (Pod-и видаляються).
+4) В результаті залишаються тільки Pod-и нової версії, а старий ReplicaSet зазвичай лишається як “історія” для rollback.
+
+Як саме швидко/обережно це відбувається, визначає `spec.strategy.rollingUpdate.maxSurge` і `maxUnavailable`.
+
+Перевірити прогрес:
+
+```bash
+kubectl rollout status deploy/<name> -n <namespace>
+kubectl get rs -n <namespace>
+kubectl get pods -n <namespace> -o wide
+```
+
+Повернутись назад (rollback):
+
+```bash
+kubectl rollout undo deploy/<name> -n <namespace>
+```
+
 ```bash
 kubectl set image deploy/web web=nginx:1.28
 kubectl rollout status deploy/web

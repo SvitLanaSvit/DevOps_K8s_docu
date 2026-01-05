@@ -9,22 +9,24 @@
 ## Рекомендований порядок читання
 1) [cluster-doc.md](cluster-doc.md) — що таке кластер і як він влаштований
 2) [node-doc.md](node-doc.md) — що таке нода (worker/control plane)
-3) [scheduling-doc.md](scheduling-doc.md) — як scheduler розміщує Pod (Affinity/AntiAffinity)
-4) [pod-doc.md](pod-doc.md) — Pod та життєвий цикл
-5) [containers-doc.md](containers-doc.md) — containers / initContainers і коли вони реально створюються
-6) [deployment-doc.md](deployment-doc.md) — Deployment / ReplicaSet (replicas, rollout, rollback)
-7) [daemonset-doc.md](daemonset-doc.md) — DaemonSet (по одному Pod на кожній Node)
-8) [job-doc.md](job-doc.md) — Job (одноразові/батч задачі)
-9) [cronjob-doc.md](cronjob-doc.md) — CronJob (Job за розкладом)
-10) [configmap-doc.md](configmap-doc.md) — ConfigMap (key/value і як файли)
-11) [storageclass-doc.md](storageclass-doc.md) — StorageClass (класи сховища для PVC/PV)
-12) [statefulset-doc.md](statefulset-doc.md) — StatefulSet (stable DNS + stable storage)
-13) [service-doc.md](service-doc.md) — Service і типи доступу
-14) [namespace-doc.md](namespace-doc.md) — Namespace і логічна ізоляція
+3) [helm-doc.md](helm-doc.md) — Helm (charts, releases, values)
+4) [scheduling-doc.md](scheduling-doc.md) — як scheduler розміщує Pod (Affinity/AntiAffinity)
+5) [pod-doc.md](pod-doc.md) — Pod та життєвий цикл
+6) [containers-doc.md](containers-doc.md) — containers / initContainers і коли вони реально створюються
+7) [deployment-doc.md](deployment-doc.md) — Deployment / ReplicaSet (replicas, rollout, rollback)
+8) [daemonset-doc.md](daemonset-doc.md) — DaemonSet (по одному Pod на кожній Node)
+9) [job-doc.md](job-doc.md) — Job (одноразові/батч задачі)
+10) [cronjob-doc.md](cronjob-doc.md) — CronJob (Job за розкладом)
+11) [configmap-doc.md](configmap-doc.md) — ConfigMap (key/value і як файли)
+12) [storageclass-doc.md](storageclass-doc.md) — StorageClass (класи сховища для PVC/PV)
+13) [statefulset-doc.md](statefulset-doc.md) — StatefulSet (stable DNS + stable storage)
+14) [service-doc.md](service-doc.md) — Service і типи доступу
+15) [namespace-doc.md](namespace-doc.md) — Namespace і логічна ізоляція
 
 ## Документи
 - [cluster-doc.md](cluster-doc.md)
 - [node-doc.md](node-doc.md)
+- [helm-doc.md](helm-doc.md)
 - [scheduling-doc.md](scheduling-doc.md)
 - [pod-doc.md](pod-doc.md)
 - [containers-doc.md](containers-doc.md)
@@ -45,6 +47,8 @@
   - [deployment.png](./screenshots/deployment.png)
 - Скріншот про labels/selector у Deployment:
   - [deployment_name.png](./screenshots/deployment_name.png)
+- Скріншот про зміну версії (rollout) у Deployment:
+  - [deployment_change_version.png](./screenshots/deployment_change_version.png)
 - Скріншот про DaemonSet (1 Pod на кожній Node):
   - [daemont_set.png](./screenshots/daemont_set.png)
 - Скріншот про Job (одноразова задача в Pod):
@@ -57,6 +61,8 @@
   - [pvc.png](./screenshots/pvc.png)
 - Скріншот про StatefulSet + headless Service + DNS:
   - [statfull_set.png](./screenshots/statfull_set.png)
+- Скріншот з `kubectl get sc` (StorageClass):
+  - [storage_class_result.png](./screenshots/storage_class_result.png)
 - Скріншот про PodAffinity / PodAntiAffinity:
   - [scheduling-affinity.png](./screenshots/scheduling-affinity.png)
 - Скріншот про Service + namespace + DNS:
