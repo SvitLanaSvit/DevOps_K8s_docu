@@ -10,23 +10,26 @@
 1) [cluster-doc.md](cluster-doc.md) — що таке кластер і як він влаштований
 2) [node-doc.md](node-doc.md) — що таке нода (worker/control plane)
 3) [helm-doc.md](helm-doc.md) — Helm (charts, releases, values)
-4) [scheduling-doc.md](scheduling-doc.md) — як scheduler розміщує Pod (Affinity/AntiAffinity)
-5) [pod-doc.md](pod-doc.md) — Pod та життєвий цикл
-6) [containers-doc.md](containers-doc.md) — containers / initContainers і коли вони реально створюються
-7) [deployment-doc.md](deployment-doc.md) — Deployment / ReplicaSet (replicas, rollout, rollback)
-8) [daemonset-doc.md](daemonset-doc.md) — DaemonSet (по одному Pod на кожній Node)
-9) [job-doc.md](job-doc.md) — Job (одноразові/батч задачі)
-10) [cronjob-doc.md](cronjob-doc.md) — CronJob (Job за розкладом)
-11) [configmap-doc.md](configmap-doc.md) — ConfigMap (key/value і як файли)
-12) [storageclass-doc.md](storageclass-doc.md) — StorageClass (класи сховища для PVC/PV)
-13) [statefulset-doc.md](statefulset-doc.md) — StatefulSet (stable DNS + stable storage)
-14) [service-doc.md](service-doc.md) — Service і типи доступу
-15) [namespace-doc.md](namespace-doc.md) — Namespace і логічна ізоляція
+4) [rbac-doc.md](rbac-doc.md) — RBAC (Roles, Bindings, ServiceAccount)
+5) [scheduling-doc.md](scheduling-doc.md) — як scheduler розміщує Pod (Affinity/AntiAffinity)
+6) [pod-doc.md](pod-doc.md) — Pod та життєвий цикл
+7) [containers-doc.md](containers-doc.md) — containers / initContainers і коли вони реально створюються
+8) [deployment-doc.md](deployment-doc.md) — Deployment / ReplicaSet (replicas, rollout, rollback)
+9) [daemonset-doc.md](daemonset-doc.md) — DaemonSet (по одному Pod на кожній Node)
+10) [job-doc.md](job-doc.md) — Job (одноразові/батч задачі)
+11) [cronjob-doc.md](cronjob-doc.md) — CronJob (Job за розкладом)
+12) [configmap-doc.md](configmap-doc.md) — ConfigMap (key/value і як файли)
+12) [secrets-doc.md](secrets-doc.md) — Secrets (паролі/токени, env/volumes)
+13) [storageclass-doc.md](storageclass-doc.md) — StorageClass (класи сховища для PVC/PV)
+14) [statefulset-doc.md](statefulset-doc.md) — StatefulSet (stable DNS + stable storage)
+15) [service-doc.md](service-doc.md) — Service і типи доступу
+16) [namespace-doc.md](namespace-doc.md) — Namespace і логічна ізоляція
 
 ## Документи
 - [cluster-doc.md](cluster-doc.md)
 - [node-doc.md](node-doc.md)
 - [helm-doc.md](helm-doc.md)
+- [rbac-doc.md](rbac-doc.md)
 - [scheduling-doc.md](scheduling-doc.md)
 - [pod-doc.md](pod-doc.md)
 - [containers-doc.md](containers-doc.md)
@@ -35,6 +38,7 @@
 - [job-doc.md](job-doc.md)
 - [cronjob-doc.md](cronjob-doc.md)
 - [configmap-doc.md](configmap-doc.md)
+- [secrets-doc.md](secrets-doc.md)
 - [storageclass-doc.md](storageclass-doc.md)
 - [statefulset-doc.md](statefulset-doc.md)
 - [service-doc.md](service-doc.md)
@@ -43,6 +47,8 @@
 ## Схеми
 - Скріншот діаграми кластера (відображається в GitHub):
   - [cluster-diagram.png](./screenshots/cluster-diagram.png)
+- Скріншот про GitLab pipeline → agent → RBAC/ServiceAccount:
+  - [Agent_K8s_gitlab.png](./screenshots/Agent_K8s_gitlab.png)
 - Скріншот про Deployment → ReplicaSet → Pods:
   - [deployment.png](./screenshots/deployment.png)
 - Скріншот про labels/selector у Deployment:
